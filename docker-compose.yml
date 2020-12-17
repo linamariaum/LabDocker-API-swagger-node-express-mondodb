@@ -1,0 +1,15 @@
+version: "3.7"
+services:
+  app:
+    container_name: appCustomerAPI
+    restart: always
+    build: .
+    ports:
+      - "8081:8081"
+    links:
+      - mongo
+  mongo:
+    container_name: mongo
+    image: mongo
+    ports:
+      - "27018:27017"
