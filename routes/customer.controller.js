@@ -205,7 +205,7 @@ router.patch('/:id', async(req, res) => {
  *       500:
  *         description: Bad request
 */
-router.put('/:id', (req, res) => {
+router.put('/:id', async(req, res) => {
     try {
         const customer = await CustomerModel.findByIdAndUpdate(req.params.id, req.body, {new: true})
         res.status(200).json(customer);
@@ -237,7 +237,7 @@ router.put('/:id', (req, res) => {
  *       500:
  *         description: Bad request
 */
-router.delete('/:id', (req, res) => {
+router.delete('/:id', async(req, res) => {
     try {
         const customer = await CustomerModel.findByIdAndRemove(req.params.id)
         res.status(200).json(customer);
